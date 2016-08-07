@@ -1,0 +1,39 @@
+{
+  "name": "pooled-singleton-design-pattern",
+  "description": "Example using pooled singleton degin pattern",
+  "version": "1.0.0",
+  "author": "Nicola Del Gobbo <nicoladelgobbo@gmail.com>",
+  "keywords": [
+    "design pattern",
+    "singleton",
+    "pool",
+    "bucket",
+    "resources"
+  ],
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickNaso/pooled-singleton-design-pattern.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NickNaso/pooled-singleton-design-pattern/issues"
+  },
+  "homepage": "http://www.nacios.it/",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "index.js",
+    "lib/"
+  ]
+}

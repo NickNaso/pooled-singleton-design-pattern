@@ -16,4 +16,53 @@
  * Nicola Del Gobbo <nicoladelgobbo@gmail.com>
  ******************************************************************************/
 
- 'use strict';
+'use strict';
+
+const PooledResource = require('./lib/PooledResources');
+
+const optsResA = {
+    host: '192.168.0.1',
+    port: 3002,
+    protocol: 'http'
+};
+
+const optsResB = {
+    host: '192.168.0.2',
+    port: 3003,
+    protocol: 'https'
+};
+
+const optsRes3 = {
+    host: '192.168.0.3',
+    port: 3004,
+    protocol: 'http'
+};
+
+////////////////////////////////////////////////////////////////////////////////
+
+PooledResource.createResource('ResA', optsResA);
+PooledResource.createResource('ResB', optsResB);
+
+PooledResource
+.getInstance('ResA')
+.getConnection()
+.then((res) => {
+    console.log(res);
+    return PooledResource
+    .getInstance('ResB')
+    .getConnection();
+})
+.then((res) => {
+    console.log(res);
+    return PooledResource
+    .getResource('Res3', optsRes3)
+    .getConnection();
+})
+.then((res) => {
+    console.log(res);
+})
+.catch((err) => {
+    console.log('Oops something wrong happened.', err);
+});
+
+////////////////////////////////////////////////////////////////////////////////
